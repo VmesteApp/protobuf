@@ -1,4 +1,4 @@
-module github.com/VmesteApp/protos
+module github.com/VmesteApp/protobuf
 
 go 1.21
 
