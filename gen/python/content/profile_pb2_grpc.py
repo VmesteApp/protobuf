@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import auth_pb2 as auth__pb2
+import profile_pb2 as profile__pb2
 
 GRPC_GENERATED_VERSION = '1.67.1'
 GRPC_VERSION = grpc.__version__
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in auth_pb2_grpc.py depends on'
+        + f' but the generated code in profile_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class AuthServiceStub(object):
+class ProfileServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -35,13 +35,13 @@ class AuthServiceStub(object):
             channel: A grpc.Channel.
         """
         self.GetVkID = channel.unary_unary(
-                '/auth.AuthService/GetVkID',
-                request_serializer=auth__pb2.GetVkIDRequest.SerializeToString,
-                response_deserializer=auth__pb2.GetVkIDResponse.FromString,
+                '/profile.ProfileService/GetVkID',
+                request_serializer=profile__pb2.GetVkIDRequest.SerializeToString,
+                response_deserializer=profile__pb2.GetVkIDResponse.FromString,
                 _registered_method=True)
 
 
-class AuthServiceServicer(object):
+class ProfileServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetVkID(self, request, context):
@@ -51,22 +51,22 @@ class AuthServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_AuthServiceServicer_to_server(servicer, server):
+def add_ProfileServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetVkID': grpc.unary_unary_rpc_method_handler(
                     servicer.GetVkID,
-                    request_deserializer=auth__pb2.GetVkIDRequest.FromString,
-                    response_serializer=auth__pb2.GetVkIDResponse.SerializeToString,
+                    request_deserializer=profile__pb2.GetVkIDRequest.FromString,
+                    response_serializer=profile__pb2.GetVkIDResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'auth.AuthService', rpc_method_handlers)
+            'profile.ProfileService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('auth.AuthService', rpc_method_handlers)
+    server.add_registered_method_handlers('profile.ProfileService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class AuthService(object):
+class ProfileService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -83,9 +83,9 @@ class AuthService(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/auth.AuthService/GetVkID',
-            auth__pb2.GetVkIDRequest.SerializeToString,
-            auth__pb2.GetVkIDResponse.FromString,
+            '/profile.ProfileService/GetVkID',
+            profile__pb2.GetVkIDRequest.SerializeToString,
+            profile__pb2.GetVkIDResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -28,4 +28,4 @@ vendor-proto:
 generate-python-content-service:
 	python -m grpc_tools.protoc -I./proto/auth \
 	--python_out=./gen/python/content \
-	--grpc_python_out=./gen/python/content ./proto/auth/auth.proto
+	--grpc_python_out=./gen/python/content ./proto/auth/profile.proto
