@@ -8,14 +8,14 @@ get-deps:
 	go get -u google.golang.org/protobuf/cmd/protoc-gen-go
 	go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
-generate-golang-auth-service:
-	mkdir -p gen/go/auth
+generate-golang-profile-service:
+	mkdir -p gen/go/profile
 	protoc --proto_path proto/auth --proto_path vendor.protogen \
-	--go_out=gen/go/auth --go_opt=paths=source_relative \
+	--go_out=gen/go/profile --go_opt=paths=source_relative \
 	--plugin=protoc-gen-go=bin/protoc-gen-go \
-	--go-grpc_out=gen/go/auth --go-grpc_opt=paths=source_relative \
+	--go-grpc_out=gen/go/profile --go-grpc_opt=paths=source_relative \
 	--plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc \
-	proto/auth/auth.proto
+	proto/auth/profile.proto
 
 vendor-proto:
 		@if [ ! -d vendor.protogen/google ]; then \

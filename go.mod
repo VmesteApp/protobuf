@@ -1,10 +1,10 @@
-module github.com/VmesteApp/protos
+module github.com/VmesteApp/protobuf
 
 go 1.21
 
 require (
 	google.golang.org/grpc v1.65.0 // direct
-	google.golang.org/protobuf v1.35.1 // direct
+	google.golang.org/protobuf v1.35.2 // direct
 )
 
 require (

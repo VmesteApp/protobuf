@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package auth;
+package profile;
 
-option go_package = "VmesteApp.auth.v1;authv1";
+option go_package = "VmesteApp.profile.v1;profilev1";
 
-service AuthService {
+service ProfileService {
  rpc GetVkID (GetVkIDRequest) returns (GetVkIDResponse) {}
 }
 
