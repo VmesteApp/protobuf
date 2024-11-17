@@ -24,3 +24,8 @@ vendor-proto:
 			mv vendor.protogen/googleapis/google/api vendor.protogen/google &&\
 			rm -rf vendor.protogen/googleapis ;\
 		fi
+
+generate-python-content-service:
+	python -m grpc_tools.protoc -I./proto/auth \
+	--python_out=./gen/python/content \
+	--grpc_python_out=./gen/python/content ./proto/auth/auth.proto
